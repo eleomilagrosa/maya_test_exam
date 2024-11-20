@@ -1,0 +1,38 @@
+{
+  "profile": {
+    "name": "typicode"
+  },
+  "transaction": [
+    {
+      "id" : 2,
+      "amount" : 500,
+      "userId": 1,
+      "balance": 9500,
+      "previous_balance": 10000,
+      "created_at": ""
+    },
+    {
+      "id" : 3,
+      "userId": 1,
+      "amount" : 1000,
+      "balance": 8500,
+      "previous_balance": 9500,
+      "created_at": ""
+    },
+    {
+      "id" : 4,
+      "userId": 1,
+      "amount" : 2000,
+      "balance": 6500,
+      "previous_balance": 8500,
+      "created_at": ""
+    }
+  ],
+  "user" : [
+    {
+      "id" : 1,
+      "name" : "Eleo",
+      "balance" : 10000
+    }
+  ]
+}
