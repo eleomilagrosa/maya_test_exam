@@ -16,44 +16,42 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$UserEvent {
+  int get userId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchTransactionHistory,
     required TResult Function(int userId) fetchUserDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchTransactionHistory,
     TResult? Function(int userId)? fetchUserDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchTransactionHistory,
     TResult Function(int userId)? fetchUserDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FetchTransactionHistory value)
-        fetchTransactionHistory,
     required TResult Function(_FetchUserDetails value) fetchUserDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FetchTransactionHistory value)? fetchTransactionHistory,
     TResult? Function(_FetchUserDetails value)? fetchUserDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FetchTransactionHistory value)? fetchTransactionHistory,
     TResult Function(_FetchUserDetails value)? fetchUserDetails,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UserEventCopyWith<UserEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -61,6 +59,8 @@ mixin _$UserEvent {
 abstract class $UserEventCopyWith<$Res> {
   factory $UserEventCopyWith(UserEvent value, $Res Function(UserEvent) then) =
       _$UserEventCopyWithImpl<$Res, UserEvent>;
+  @useResult
+  $Res call({int userId});
 }
 
 /// @nodoc
@@ -72,119 +72,28 @@ class _$UserEventCopyWithImpl<$Res, $Val extends UserEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = null,
+  }) {
+    return _then(_value.copyWith(
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$FetchTransactionHistoryImplCopyWith<$Res> {
-  factory _$$FetchTransactionHistoryImplCopyWith(
-          _$FetchTransactionHistoryImpl value,
-          $Res Function(_$FetchTransactionHistoryImpl) then) =
-      __$$FetchTransactionHistoryImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchTransactionHistoryImplCopyWithImpl<$Res>
-    extends _$UserEventCopyWithImpl<$Res, _$FetchTransactionHistoryImpl>
-    implements _$$FetchTransactionHistoryImplCopyWith<$Res> {
-  __$$FetchTransactionHistoryImplCopyWithImpl(
-      _$FetchTransactionHistoryImpl _value,
-      $Res Function(_$FetchTransactionHistoryImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchTransactionHistoryImpl implements _FetchTransactionHistory {
-  const _$FetchTransactionHistoryImpl();
-
-  @override
-  String toString() {
-    return 'UserEvent.fetchTransactionHistory()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchTransactionHistoryImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchTransactionHistory,
-    required TResult Function(int userId) fetchUserDetails,
-  }) {
-    return fetchTransactionHistory();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchTransactionHistory,
-    TResult? Function(int userId)? fetchUserDetails,
-  }) {
-    return fetchTransactionHistory?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchTransactionHistory,
-    TResult Function(int userId)? fetchUserDetails,
-    required TResult orElse(),
-  }) {
-    if (fetchTransactionHistory != null) {
-      return fetchTransactionHistory();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FetchTransactionHistory value)
-        fetchTransactionHistory,
-    required TResult Function(_FetchUserDetails value) fetchUserDetails,
-  }) {
-    return fetchTransactionHistory(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FetchTransactionHistory value)? fetchTransactionHistory,
-    TResult? Function(_FetchUserDetails value)? fetchUserDetails,
-  }) {
-    return fetchTransactionHistory?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FetchTransactionHistory value)? fetchTransactionHistory,
-    TResult Function(_FetchUserDetails value)? fetchUserDetails,
-    required TResult orElse(),
-  }) {
-    if (fetchTransactionHistory != null) {
-      return fetchTransactionHistory(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _FetchTransactionHistory implements UserEvent {
-  const factory _FetchTransactionHistory() = _$FetchTransactionHistoryImpl;
-}
-
-/// @nodoc
-abstract class _$$FetchUserDetailsImplCopyWith<$Res> {
+abstract class _$$FetchUserDetailsImplCopyWith<$Res>
+    implements $UserEventCopyWith<$Res> {
   factory _$$FetchUserDetailsImplCopyWith(_$FetchUserDetailsImpl value,
           $Res Function(_$FetchUserDetailsImpl) then) =
       __$$FetchUserDetailsImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({int userId});
 }
@@ -245,7 +154,6 @@ class _$FetchUserDetailsImpl implements _FetchUserDetails {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchTransactionHistory,
     required TResult Function(int userId) fetchUserDetails,
   }) {
     return fetchUserDetails(userId);
@@ -254,7 +162,6 @@ class _$FetchUserDetailsImpl implements _FetchUserDetails {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchTransactionHistory,
     TResult? Function(int userId)? fetchUserDetails,
   }) {
     return fetchUserDetails?.call(userId);
@@ -263,7 +170,6 @@ class _$FetchUserDetailsImpl implements _FetchUserDetails {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchTransactionHistory,
     TResult Function(int userId)? fetchUserDetails,
     required TResult orElse(),
   }) {
@@ -276,8 +182,6 @@ class _$FetchUserDetailsImpl implements _FetchUserDetails {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FetchTransactionHistory value)
-        fetchTransactionHistory,
     required TResult Function(_FetchUserDetails value) fetchUserDetails,
   }) {
     return fetchUserDetails(this);
@@ -286,7 +190,6 @@ class _$FetchUserDetailsImpl implements _FetchUserDetails {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FetchTransactionHistory value)? fetchTransactionHistory,
     TResult? Function(_FetchUserDetails value)? fetchUserDetails,
   }) {
     return fetchUserDetails?.call(this);
@@ -295,7 +198,6 @@ class _$FetchUserDetailsImpl implements _FetchUserDetails {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FetchTransactionHistory value)? fetchTransactionHistory,
     TResult Function(_FetchUserDetails value)? fetchUserDetails,
     required TResult orElse(),
   }) {
@@ -309,7 +211,9 @@ class _$FetchUserDetailsImpl implements _FetchUserDetails {
 abstract class _FetchUserDetails implements UserEvent {
   const factory _FetchUserDetails(final int userId) = _$FetchUserDetailsImpl;
 
+  @override
   int get userId;
+  @override
   @JsonKey(ignore: true)
   _$$FetchUserDetailsImplCopyWith<_$FetchUserDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -317,12 +221,9 @@ abstract class _FetchUserDetails implements UserEvent {
 
 /// @nodoc
 mixin _$UserState {
-  RequestState get userState => throw _privateConstructorUsedError;
-  RequestState get transactionListState => throw _privateConstructorUsedError;
-  String get errorMessageUser => throw _privateConstructorUsedError;
-  String get errorMessageTransaction => throw _privateConstructorUsedError;
+  RequestState get state => throw _privateConstructorUsedError;
+  String get errorMessage => throw _privateConstructorUsedError;
   User? get currentUser => throw _privateConstructorUsedError;
-  List<Transaction> get transactions => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserStateCopyWith<UserState> get copyWith =>
@@ -334,13 +235,7 @@ abstract class $UserStateCopyWith<$Res> {
   factory $UserStateCopyWith(UserState value, $Res Function(UserState) then) =
       _$UserStateCopyWithImpl<$Res, UserState>;
   @useResult
-  $Res call(
-      {RequestState userState,
-      RequestState transactionListState,
-      String errorMessageUser,
-      String errorMessageTransaction,
-      User? currentUser,
-      List<Transaction> transactions});
+  $Res call({RequestState state, String errorMessage, User? currentUser});
 }
 
 /// @nodoc
@@ -356,38 +251,23 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userState = null,
-    Object? transactionListState = null,
-    Object? errorMessageUser = null,
-    Object? errorMessageTransaction = null,
+    Object? state = null,
+    Object? errorMessage = null,
     Object? currentUser = freezed,
-    Object? transactions = null,
   }) {
     return _then(_value.copyWith(
-      userState: null == userState
-          ? _value.userState
-          : userState // ignore: cast_nullable_to_non_nullable
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
               as RequestState,
-      transactionListState: null == transactionListState
-          ? _value.transactionListState
-          : transactionListState // ignore: cast_nullable_to_non_nullable
-              as RequestState,
-      errorMessageUser: null == errorMessageUser
-          ? _value.errorMessageUser
-          : errorMessageUser // ignore: cast_nullable_to_non_nullable
-              as String,
-      errorMessageTransaction: null == errorMessageTransaction
-          ? _value.errorMessageTransaction
-          : errorMessageTransaction // ignore: cast_nullable_to_non_nullable
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
       currentUser: freezed == currentUser
           ? _value.currentUser
           : currentUser // ignore: cast_nullable_to_non_nullable
               as User?,
-      transactions: null == transactions
-          ? _value.transactions
-          : transactions // ignore: cast_nullable_to_non_nullable
-              as List<Transaction>,
     ) as $Val);
   }
 }
@@ -400,13 +280,7 @@ abstract class _$$UserStateImplCopyWith<$Res>
       __$$UserStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {RequestState userState,
-      RequestState transactionListState,
-      String errorMessageUser,
-      String errorMessageTransaction,
-      User? currentUser,
-      List<Transaction> transactions});
+  $Res call({RequestState state, String errorMessage, User? currentUser});
 }
 
 /// @nodoc
@@ -420,38 +294,23 @@ class __$$UserStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userState = null,
-    Object? transactionListState = null,
-    Object? errorMessageUser = null,
-    Object? errorMessageTransaction = null,
+    Object? state = null,
+    Object? errorMessage = null,
     Object? currentUser = freezed,
-    Object? transactions = null,
   }) {
     return _then(_$UserStateImpl(
-      userState: null == userState
-          ? _value.userState
-          : userState // ignore: cast_nullable_to_non_nullable
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
               as RequestState,
-      transactionListState: null == transactionListState
-          ? _value.transactionListState
-          : transactionListState // ignore: cast_nullable_to_non_nullable
-              as RequestState,
-      errorMessageUser: null == errorMessageUser
-          ? _value.errorMessageUser
-          : errorMessageUser // ignore: cast_nullable_to_non_nullable
-              as String,
-      errorMessageTransaction: null == errorMessageTransaction
-          ? _value.errorMessageTransaction
-          : errorMessageTransaction // ignore: cast_nullable_to_non_nullable
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
       currentUser: freezed == currentUser
           ? _value.currentUser
           : currentUser // ignore: cast_nullable_to_non_nullable
               as User?,
-      transactions: null == transactions
-          ? _value._transactions
-          : transactions // ignore: cast_nullable_to_non_nullable
-              as List<Transaction>,
     ));
   }
 }
@@ -460,35 +319,20 @@ class __$$UserStateImplCopyWithImpl<$Res>
 
 class _$UserStateImpl implements _UserState {
   const _$UserStateImpl(
-      {required this.userState,
-      required this.transactionListState,
-      required this.errorMessageUser,
-      required this.errorMessageTransaction,
-      required this.currentUser,
-      required final List<Transaction> transactions})
-      : _transactions = transactions;
+      {required this.state,
+      required this.errorMessage,
+      required this.currentUser});
 
   @override
-  final RequestState userState;
+  final RequestState state;
   @override
-  final RequestState transactionListState;
-  @override
-  final String errorMessageUser;
-  @override
-  final String errorMessageTransaction;
+  final String errorMessage;
   @override
   final User? currentUser;
-  final List<Transaction> _transactions;
-  @override
-  List<Transaction> get transactions {
-    if (_transactions is EqualUnmodifiableListView) return _transactions;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_transactions);
-  }
 
   @override
   String toString() {
-    return 'UserState(userState: $userState, transactionListState: $transactionListState, errorMessageUser: $errorMessageUser, errorMessageTransaction: $errorMessageTransaction, currentUser: $currentUser, transactions: $transactions)';
+    return 'UserState(state: $state, errorMessage: $errorMessage, currentUser: $currentUser)';
   }
 
   @override
@@ -496,30 +340,16 @@ class _$UserStateImpl implements _UserState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserStateImpl &&
-            (identical(other.userState, userState) ||
-                other.userState == userState) &&
-            (identical(other.transactionListState, transactionListState) ||
-                other.transactionListState == transactionListState) &&
-            (identical(other.errorMessageUser, errorMessageUser) ||
-                other.errorMessageUser == errorMessageUser) &&
-            (identical(
-                    other.errorMessageTransaction, errorMessageTransaction) ||
-                other.errorMessageTransaction == errorMessageTransaction) &&
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage) &&
             (identical(other.currentUser, currentUser) ||
-                other.currentUser == currentUser) &&
-            const DeepCollectionEquality()
-                .equals(other._transactions, _transactions));
+                other.currentUser == currentUser));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      userState,
-      transactionListState,
-      errorMessageUser,
-      errorMessageTransaction,
-      currentUser,
-      const DeepCollectionEquality().hash(_transactions));
+  int get hashCode =>
+      Object.hash(runtimeType, state, errorMessage, currentUser);
 
   @JsonKey(ignore: true)
   @override
@@ -530,25 +360,16 @@ class _$UserStateImpl implements _UserState {
 
 abstract class _UserState implements UserState {
   const factory _UserState(
-      {required final RequestState userState,
-      required final RequestState transactionListState,
-      required final String errorMessageUser,
-      required final String errorMessageTransaction,
-      required final User? currentUser,
-      required final List<Transaction> transactions}) = _$UserStateImpl;
+      {required final RequestState state,
+      required final String errorMessage,
+      required final User? currentUser}) = _$UserStateImpl;
 
   @override
-  RequestState get userState;
+  RequestState get state;
   @override
-  RequestState get transactionListState;
-  @override
-  String get errorMessageUser;
-  @override
-  String get errorMessageTransaction;
+  String get errorMessage;
   @override
   User? get currentUser;
-  @override
-  List<Transaction> get transactions;
   @override
   @JsonKey(ignore: true)
   _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>

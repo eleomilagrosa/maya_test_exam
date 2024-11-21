@@ -54,8 +54,7 @@ void init() {
   //   () => sendTransactionBloc,
   // );
 
-  final userBlock =
-      UserBloc(getUserDetails: locator(), getTransactionHistory: locator());
+  final userBlock = UserBloc(getUserDetails: locator());
   locator.registerLazySingleton(
     () => userBlock,
   );

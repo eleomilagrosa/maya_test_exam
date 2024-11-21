@@ -21,7 +21,7 @@ class SendTransactionBloc
           },
           sendMoneyTransaction: (args) async {
             emit(state.copyWith(state: RequestState.loading));
-            await Future.delayed(const Duration(seconds: 2));
+            await Future.delayed(const Duration(seconds: 1));
             final result = await sendMoneyTransaction.call(amount: args.amount);
             result.fold(
                 (f) => emit(

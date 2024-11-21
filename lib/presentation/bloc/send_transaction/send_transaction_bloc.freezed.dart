@@ -316,7 +316,7 @@ abstract class _ResetState implements SendTransactionEvent {
 /// @nodoc
 mixin _$SendTransactionState {
   RequestState get state => throw _privateConstructorUsedError;
-  String get errorMessage => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
   SendTransactionResult? get sendTransactionResult =>
       throw _privateConstructorUsedError;
 
@@ -333,7 +333,7 @@ abstract class $SendTransactionStateCopyWith<$Res> {
   @useResult
   $Res call(
       {RequestState state,
-      String errorMessage,
+      String? errorMessage,
       SendTransactionResult? sendTransactionResult});
 }
 
@@ -352,7 +352,7 @@ class _$SendTransactionStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? state = null,
-    Object? errorMessage = null,
+    Object? errorMessage = freezed,
     Object? sendTransactionResult = freezed,
   }) {
     return _then(_value.copyWith(
@@ -360,10 +360,10 @@ class _$SendTransactionStateCopyWithImpl<$Res,
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as RequestState,
-      errorMessage: null == errorMessage
+      errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       sendTransactionResult: freezed == sendTransactionResult
           ? _value.sendTransactionResult
           : sendTransactionResult // ignore: cast_nullable_to_non_nullable
@@ -382,7 +382,7 @@ abstract class _$$SendTransactionStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {RequestState state,
-      String errorMessage,
+      String? errorMessage,
       SendTransactionResult? sendTransactionResult});
 }
 
@@ -398,7 +398,7 @@ class __$$SendTransactionStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? state = null,
-    Object? errorMessage = null,
+    Object? errorMessage = freezed,
     Object? sendTransactionResult = freezed,
   }) {
     return _then(_$SendTransactionStateImpl(
@@ -406,10 +406,10 @@ class __$$SendTransactionStateImplCopyWithImpl<$Res>
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as RequestState,
-      errorMessage: null == errorMessage
+      errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       sendTransactionResult: freezed == sendTransactionResult
           ? _value.sendTransactionResult
           : sendTransactionResult // ignore: cast_nullable_to_non_nullable
@@ -422,14 +422,12 @@ class __$$SendTransactionStateImplCopyWithImpl<$Res>
 
 class _$SendTransactionStateImpl implements _SendTransactionState {
   const _$SendTransactionStateImpl(
-      {required this.state,
-      required this.errorMessage,
-      required this.sendTransactionResult});
+      {required this.state, this.errorMessage, this.sendTransactionResult});
 
   @override
   final RequestState state;
   @override
-  final String errorMessage;
+  final String? errorMessage;
   @override
   final SendTransactionResult? sendTransactionResult;
 
@@ -466,14 +464,14 @@ class _$SendTransactionStateImpl implements _SendTransactionState {
 abstract class _SendTransactionState implements SendTransactionState {
   const factory _SendTransactionState(
           {required final RequestState state,
-          required final String errorMessage,
-          required final SendTransactionResult? sendTransactionResult}) =
+          final String? errorMessage,
+          final SendTransactionResult? sendTransactionResult}) =
       _$SendTransactionStateImpl;
 
   @override
   RequestState get state;
   @override
-  String get errorMessage;
+  String? get errorMessage;
   @override
   SendTransactionResult? get sendTransactionResult;
   @override

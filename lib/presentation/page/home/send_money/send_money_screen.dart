@@ -7,7 +7,7 @@ import 'package:maya_test_exam/common/enum.dart';
 import 'package:maya_test_exam/common/toast.dart';
 import 'package:maya_test_exam/data/model/transaction.dart';
 import 'package:maya_test_exam/injection.dart';
-import 'package:maya_test_exam/presentation/bloc/transaction/send_transaction_bloc.dart';
+import 'package:maya_test_exam/presentation/bloc/send_transaction/send_transaction_bloc.dart';
 import 'package:maya_test_exam/presentation/widget/custom_rounded_button.dart';
 import 'package:maya_test_exam/presentation/widget/custom_text_form_field.dart';
 import 'package:maya_test_exam/utilities/extensions/app_extensions.dart';
@@ -53,7 +53,7 @@ class _SendMoneyBodyState extends State<SendMoneyBody> {
         }
         if (state.state == RequestState.error) {
           showToast(
-              msg: state.errorMessage,
+              msg: state.errorMessage ?? "",
               backgroundColor: Colors.red,
               textColor: Colors.white);
         }

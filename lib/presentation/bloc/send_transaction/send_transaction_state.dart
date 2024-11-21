@@ -4,8 +4,8 @@ part of 'send_transaction_bloc.dart';
 class SendTransactionState with _$SendTransactionState {
   const factory SendTransactionState({
     required RequestState state,
-    required String errorMessage,
-    required SendTransactionResult? sendTransactionResult,
+    String? errorMessage,
+    SendTransactionResult? sendTransactionResult,
   }) = _SendTransactionState;
 
   factory SendTransactionState.initial() => const SendTransactionState(

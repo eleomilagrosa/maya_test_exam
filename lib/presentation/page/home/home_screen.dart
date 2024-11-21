@@ -56,17 +56,17 @@ class _CardUserWidgetState extends State<CardUserWidget> {
   Widget build(BuildContext context) {
     return BlocConsumer<UserBloc, UserState>(
       listener: (context, state) {
-        if (state.userState == RequestState.error) {
+        if (state.state == RequestState.error) {
           showToast(
-              msg: state.errorMessageUser,
+              msg: state.errorMessage,
               backgroundColor: Colors.red,
               textColor: Colors.white);
         }
       },
       builder: (context, state) {
-        if (state.userState == RequestState.error) {
+        if (state.state == RequestState.error) {
           return const ErrorScreen();
-        } else if (state.userState == RequestState.loading) {
+        } else if (state.state == RequestState.loading) {
           return Container(
             margin: const EdgeInsets.only(top: 50),
             child: const SpinKitThreeBounce(
@@ -74,7 +74,7 @@ class _CardUserWidgetState extends State<CardUserWidget> {
               color: ColorLight.primary,
             ),
           );
-        } else if (state.userState == RequestState.loaded) {
+        } else if (state.state == RequestState.loaded) {
           return Card(
             margin: const EdgeInsets.all(20),
             child: Container(
