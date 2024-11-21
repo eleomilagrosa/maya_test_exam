@@ -15,9 +15,11 @@ extension CustomDateTimeConverter on DateTime {
   bool isSameDay(DateTime other) {
     return year == other.year && month == other.month && day == other.day;
   }
-  String toTimeString() =>
-      DateFormat("hh:mm a").format(this);
 
-  String toMonthDayString() =>
-      DateFormat("MMM dd, yyyy").format(this);
+  String toTimeString() => DateFormat("hh:mm a").format(this);
+
+  String toMonthDayString() => DateFormat("MMM dd, yyyy").format(this);
+
+  String toEEddMMyyyyhhmmaString() =>
+      DateFormat("EE, dd MMM yyyy, hh:mm a").format(this);
 }

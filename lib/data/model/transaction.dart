@@ -36,12 +36,12 @@ class Transaction {
       };
 }
 
-class TransactionResult {
-  TransactionResult({
+class SendTransactionResult {
+  SendTransactionResult({
     required this.transaction,
     required this.user,
   });
 
-  Transaction transaction;
+  Transaction? transaction;
   User user;
 }

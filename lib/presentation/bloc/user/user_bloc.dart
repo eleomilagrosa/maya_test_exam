@@ -23,16 +23,16 @@ class UserBloc extends Bloc<UserEvent, UserState> {
             await Future.delayed(const Duration(seconds: 2));
             final result = await getTransactionHistory.call();
             result.fold(
-                    (f) => emit(
-                  state.copyWith(
-                    transactionListState: RequestState.error,
-                    errorMessageTransaction: f.message,
-                  ),
-                ),
-                    (list) => emit(state.copyWith(
-                        transactionListState: RequestState.loaded, transactions: list)));
+                (f) => emit(
+                      state.copyWith(
+                        transactionListState: RequestState.error,
+                        errorMessageTransaction: f.message,
+                      ),
+                    ),
+                (list) => emit(state.copyWith(
+                    transactionListState: RequestState.loaded,
+                    transactions: list)));
           },
-
           fetchUserDetails: (args) async {
             emit(state.copyWith(userState: RequestState.loading));
             await Future.delayed(const Duration(seconds: 5));
@@ -45,9 +45,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
                       ),
                     ),
                 (user) => emit(state.copyWith(
-                    userState: RequestState.loaded,
-                    currentUser: user
-                )));
+                    userState: RequestState.loaded, currentUser: user)));
           },
         );
       },

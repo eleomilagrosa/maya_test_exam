@@ -7,4 +7,5 @@ abstract class UserRepository {
   Future<Either<Failure, User>> getUser(int userId);
   Future<Either<Failure, List<Transaction>>> getAllUserTransactionHistory();
   User? currentUser;
+  List<Transaction> addedTransactions = [];
 }

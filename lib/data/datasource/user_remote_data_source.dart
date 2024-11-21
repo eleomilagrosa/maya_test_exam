@@ -19,14 +19,14 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   Future<List<Transaction>> getAllUserTransactionHistory(int userId) async {
     try {
       final response =
-      await dio.get(APIConstants.transaction, queryParameters: {
+          await dio.get(APIConstants.transaction, queryParameters: {
         'userId': userId,
       });
       final list = (response.data as List?)
           ?.map((e) => e as Map<String, dynamic>)
           .map<Transaction>(Transaction.fromJson)
           .toList();
-      // list.sort((a,b));
+
       return list ?? [];
     } catch (e) {
       rethrow;

@@ -4,18 +4,19 @@ import 'package:maya_test_exam/data/model/transaction.dart';
 import 'package:maya_test_exam/data/model/user.dart';
 import 'package:maya_test_exam/utilities/extensions/app_extensions.dart';
 
-abstract class TransactionRemoteDataSource {
-  Future<TransactionResult?> sendMoneyTransaction(
+abstract class SendTransactionRemoteDataSource {
+  Future<SendTransactionResult?> sendMoneyTransaction(
       {required double amount, required User user});
 }
 
-class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
+class SendTransactionRemoteDataSourceImpl
+    implements SendTransactionRemoteDataSource {
   final Dio dio = Dio(BaseOptions(
     baseUrl: APIConstants.host,
   ));
 
   @override
-  Future<TransactionResult?> sendMoneyTransaction({
+  Future<SendTransactionResult?> sendMoneyTransaction({
     required double amount,
     required User user,
   }) async {
@@ -27,10 +28,10 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
               balance: newBalance,
               userId: user.id,
               previousBalance: user.balance,
-              createdAt: DateTime.now()));
+              createdAt: DateTime.now()).toJson());
       if (response.isSuccess) {
         user.balance = newBalance;
-        TransactionResult transactionResult = TransactionResult(
+        SendTransactionResult transactionResult = SendTransactionResult(
           transaction: Transaction.fromJson(response.data),
           user: user,
         );

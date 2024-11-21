@@ -14,9 +14,13 @@ class UserRepositoryImpl extends UserRepository {
   final UserRemoteDataSource dataSource;
 
   @override
-  Future<Either<Failure, List<Transaction>>> getAllUserTransactionHistory() async {
+  Future<Either<Failure, List<Transaction>>>
+      getAllUserTransactionHistory() async {
     try {
-      final result = await dataSource.getAllUserTransactionHistory(currentUser!.id);
+      final result =
+          await dataSource.getAllUserTransactionHistory(currentUser!.id);
+      result.addAll(addedTransactions);
+      result.sort((a, b) => b.createdAt!.compareTo(a.createdAt!));
       return Right(result);
     } on ServerException catch (e) {
       return Left(ServerFailure(e.message));

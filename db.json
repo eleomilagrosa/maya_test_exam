@@ -9,7 +9,7 @@
       "userId": 1,
       "balance": 9500,
       "previous_balance": 10000,
-      "created_at": "2024-11-18T16:42:10.862826"
+      "created_at": "2024-11-18T12:42:10.862826"
     },
     {
       "id" : 3,
@@ -17,7 +17,7 @@
       "amount" : 1000,
       "balance": 8500,
       "previous_balance": 9500,
-      "created_at": "2024-11-18T16:42:10.862826"
+      "created_at": "2024-11-18T19:42:11.862826"
     },
     {
       "id" : 4,
@@ -25,7 +25,7 @@
       "amount" : 2000,
       "balance": 6500,
       "previous_balance": 8500,
-      "created_at": "2024-11-21T16:42:10.862826"
+      "created_at": "2024-11-21T13:31:14.862826"
     }
   ],
   "user" : [
