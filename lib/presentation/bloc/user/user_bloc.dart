@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:maya_test_exam/common/enum.dart';
 import 'package:maya_test_exam/data/model/user.dart';
-import 'package:maya_test_exam/domain/usecase/get_transaction_history.dart';
 import 'package:maya_test_exam/domain/usecase/get_user_details.dart';
 
 part 'user_event.dart';

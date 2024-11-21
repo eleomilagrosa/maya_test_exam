@@ -1,9 +1,12 @@
 import 'package:get_it/get_it.dart';
 import 'package:maya_test_exam/data/datasource/send_transaction_remote_data_source.dart';
+import 'package:maya_test_exam/data/datasource/transaction_history_remote_data_source.dart';
 import 'package:maya_test_exam/data/datasource/user_remote_data_source.dart';
 import 'package:maya_test_exam/data/repository/send_transaction_repository_impl.dart';
+import 'package:maya_test_exam/data/repository/transaction_history_repository_impl.dart';
 import 'package:maya_test_exam/data/repository/user_repository_impl.dart';
 import 'package:maya_test_exam/domain/repositories/send_transaction_repository.dart';
+import 'package:maya_test_exam/domain/repositories/transaction_history_repository.dart';
 import 'package:maya_test_exam/domain/repositories/user_repository.dart';
 import 'package:maya_test_exam/domain/usecase/get_transaction_history.dart';
 import 'package:maya_test_exam/domain/usecase/get_user_details.dart';
@@ -31,6 +34,15 @@ void init() {
       SendTransactionRepositoryImpl(locator(), locator());
   locator.registerLazySingleton<SendTransactionRepository>(
     () => transactionRepository,
+  );
+
+  final transactionHistoryDataSource = TransactionHistoryRemoteDataSourceImpl();
+  locator.registerLazySingleton<TransactionHistoryRemoteDataSource>(
+        () => transactionHistoryDataSource,
+  );
+  final transactionHistoryRepository = TransactionHistoryRepositoryImpl(locator(), locator());
+  locator.registerLazySingleton<TransactionHistoryRepository>(
+        () => transactionHistoryRepository,
   );
 
   // Use cases

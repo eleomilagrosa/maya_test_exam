@@ -16,7 +16,6 @@ class MockSendTransactionRepository extends Mock
 class FakeFailure extends Failure {
   @override
   final String message;
-
   const FakeFailure(this.message) : super(message);
 }
 
