@@ -2,21 +2,14 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:maya_test_exam/common/enum.dart';
-import 'package:maya_test_exam/common/failure.dart';
 import 'package:maya_test_exam/data/model/user.dart';
 import 'package:maya_test_exam/domain/repositories/user_repository.dart';
 import 'package:maya_test_exam/domain/usecase/get_user_details.dart';
 import 'package:maya_test_exam/presentation/bloc/user/user_bloc.dart';
 import 'package:mocktail/mocktail.dart';
+import 'widget_test.dart';
 
 class MockUserRepository extends Mock implements UserRepository {}
-
-class FakeFailure extends Failure {
-  @override
-  final String message;
-
-  const FakeFailure(this.message) : super(message);
-}
 
 void main() {
   late MockUserRepository mockUserRepository;

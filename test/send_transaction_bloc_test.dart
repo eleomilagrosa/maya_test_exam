@@ -2,7 +2,6 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:maya_test_exam/common/enum.dart';
-import 'package:maya_test_exam/common/failure.dart';
 import 'package:maya_test_exam/data/model/transaction.dart';
 import 'package:maya_test_exam/data/model/user.dart';
 import 'package:maya_test_exam/domain/repositories/send_transaction_repository.dart';
@@ -10,14 +9,10 @@ import 'package:maya_test_exam/domain/usecase/send_money_transaction.dart';
 import 'package:maya_test_exam/presentation/bloc/send_transaction/send_transaction_bloc.dart';
 import 'package:mocktail/mocktail.dart';
 
+import 'widget_test.dart';
+
 class MockSendTransactionRepository extends Mock
     implements SendTransactionRepository {}
-
-class FakeFailure extends Failure {
-  @override
-  final String message;
-  const FakeFailure(this.message) : super(message);
-}
 
 void main() {
   late MockSendTransactionRepository mockRepository;
