@@ -31,7 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  shared_preferences: ^2.3.3
   dio: ^5.7.0
   equatable: ^2.0.5
   google_fonts: ^6.2.1
@@ -45,7 +44,6 @@ dependencies:
   go_router: ^14.6.0
   logger: ^2.5.0
   font_awesome_flutter: ^10.8.0
-  bloc_concurrency: ^0.2.5
   intl: ^0.19.0
 
   # The following adds the Cupertino Icons font to your application.
@@ -59,7 +57,6 @@ dev_dependencies:
   mocktail: ^0.3.0
   bloc_test: ^9.1.2
   build_runner: ^2.4.6
-  mockito: ^5.4.4
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
