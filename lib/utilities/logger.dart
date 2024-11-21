@@ -174,7 +174,7 @@ final class LoggerLogging extends Logger {
   @override
   Stream<LogMessage> get logs => _logger.onRecord.map(
         (record) => record.toLogMessage(),
-  );
+      );
 
   @override
   L runLogging<L>(L Function() fn, [LogOptions options = const LogOptions()]) {
@@ -268,31 +268,31 @@ extension on DateTime {
 
 extension on logging.LogRecord {
   LogMessage toLogMessage() => LogMessage(
-    message: message,
-    error: error,
-    stackTrace: stackTrace,
-    time: time,
-    logLevel: level.toLoggerLevel(),
-  );
+        message: message,
+        error: error,
+        stackTrace: stackTrace,
+        time: time,
+        logLevel: level.toLoggerLevel(),
+      );
 }
 
 extension on logging.Level {
   LoggerLevel toLoggerLevel() => switch (this) {
-    logging.Level.SEVERE => LoggerLevel.error,
-    logging.Level.WARNING => LoggerLevel.warning,
-    logging.Level.INFO => LoggerLevel.info,
-    logging.Level.FINE || logging.Level.FINER => LoggerLevel.debug,
-    _ => LoggerLevel.verbose,
-  };
+        logging.Level.SEVERE => LoggerLevel.error,
+        logging.Level.WARNING => LoggerLevel.warning,
+        logging.Level.INFO => LoggerLevel.info,
+        logging.Level.FINE || logging.Level.FINER => LoggerLevel.debug,
+        _ => LoggerLevel.verbose,
+      };
 }
 
 extension on LoggerLevel {
   /// Transforms [LoggerLevel] to emoji
   String get emoji => switch (this) {
-    LoggerLevel.error => '🔥',
-    LoggerLevel.warning => '⚠️',
-    LoggerLevel.info => '💡',
-    LoggerLevel.debug => '🐛',
-    LoggerLevel.verbose => '🔬',
-  };
+        LoggerLevel.error => '🔥',
+        LoggerLevel.warning => '⚠️',
+        LoggerLevel.info => '💡',
+        LoggerLevel.debug => '🐛',
+        LoggerLevel.verbose => '🔬',
+      };
 }

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/maya_test_exam.iml" filepath="$PROJECT_DIR$/.idea/maya_test_exam.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/maya_test_exam_android.iml" filepath="$PROJECT_DIR$/android/maya_test_exam_android.iml" />
     </modules>
   </component>
 </project>

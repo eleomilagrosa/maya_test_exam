@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class ColorLight {
-
   ColorLight._();
 
   static const Color primary = Color(0xFF4CAF50);

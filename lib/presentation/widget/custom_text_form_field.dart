@@ -5,7 +5,6 @@ import 'package:form_field_validator/form_field_validator.dart';
 enum TextFieldType { alphabet, email, text, password, phoneNumber, number }
 
 class CustomTextFormField extends StatelessWidget {
-
   CustomTextFormField({
     super.key,
     this.controller,

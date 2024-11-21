@@ -11,7 +11,6 @@ class SendMoneyScreen extends StatefulWidget {
 }
 
 class _SendMoneyScreenState extends State<SendMoneyScreen> {
-
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -36,27 +35,26 @@ class _SendMoneyScreenState extends State<SendMoneyScreen> {
                       helperText: "Amount Help",
                       hintText: "Amount Hint",
                       helperMaxLines: 1,
-                      onChanged: (value){
-
-                      },
+                      onChanged: (value) {},
                       labelText: "Amount",
                     ),
                   ),
-                  const SizedBox(height: 12,),
+                  const SizedBox(
+                    height: 12,
+                  ),
                   Row(
                     children: [
                       Expanded(
                         child: CustomRoundedButton(
                             buttonName: "Send Money",
                             icon: Icons.trending_up_rounded,
-                            onTap: (){
+                            onTap: () {
                               if (_formKey.currentState!.validate()) {
                                 logger.debug("success");
-                              }else{
+                              } else {
                                 logger.debug("fail");
                               }
-                            }
-                        ),
+                            }),
                       )
                     ],
                   )

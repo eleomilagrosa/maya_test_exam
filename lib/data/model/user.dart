@@ -1,7 +1,7 @@
 class User {
   int id;
   String name;
-  int balance;
+  double balance;
 
   User({
     required this.id,
@@ -10,14 +10,14 @@ class User {
   });
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-    id: json["id"],
-    name: json["name"],
-    balance: json["balance"],
-  );
+        id: json["id"],
+        name: json["name"],
+        balance: json["balance"]?.toDouble(),
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "name": name,
-    "balance": balance,
-  };
+        "id": id,
+        "name": name,
+        "balance": balance,
+      };
 }

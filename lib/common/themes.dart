@@ -9,9 +9,8 @@ ThemeData get themeLightFn => ThemeData(
     // highlightColor: ColorLight.fontTitle,
     hintColor: ColorLight.fontSubtitle,
     iconButtonTheme: IconButtonThemeData(
-      style: ButtonStyle(
-          iconColor: WidgetStateProperty.all(ColorLight.fontTitle)
-      ),
+      style:
+          ButtonStyle(iconColor: WidgetStateProperty.all(ColorLight.fontTitle)),
     ),
     primaryIconTheme: const IconThemeData(
       color: ColorLight.fontTitle,
@@ -33,8 +32,7 @@ ThemeData get themeLightFn => ThemeData(
           color: ColorLight.fontTitle,
           fontSize: 20,
           fontWeight: FontWeight.w500,
-        )
-    ),
+        )),
     cardTheme: const CardTheme(
       color: ColorLight.card,
     ),
@@ -127,5 +125,4 @@ ThemeData get themeLightFn => ThemeData(
         borderRadius: BorderRadius.circular(16),
         borderSide: const BorderSide(color: ColorLight.disabledButton),
       ),
-    )
-);
+    ));
