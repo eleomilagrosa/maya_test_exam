@@ -13,8 +13,6 @@ void main() {
     () => runZonedGuarded(
       () {
         WidgetsFlutterBinding.ensureInitialized();
-        // Bloc.transformer = bloc_concurrency.sequential();
-        // Bloc.observer = const AppBlocObserver();
         di.init();
         runApp(const MyApp());
       },
