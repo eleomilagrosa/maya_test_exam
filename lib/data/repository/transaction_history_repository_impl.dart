@@ -15,10 +15,11 @@ class TransactionHistoryRepositoryImpl extends TransactionHistoryRepository {
   final UserRepository userRepository;
 
   @override
-  Future<Either<Failure, List<Transaction>>> getAllUserTransactionHistory() async {
+  Future<Either<Failure, List<Transaction>>>
+      getAllUserTransactionHistory() async {
     try {
-      final result =
-      await dataSource.getAllUserTransactionHistory(userRepository.currentUser!.id);
+      final result = await dataSource
+          .getAllUserTransactionHistory(userRepository.currentUser!.id);
       result.addAll(userRepository.addedTransactions);
       result.sort((a, b) => b.createdAt!.compareTo(a.createdAt!));
       return Right(result);
@@ -37,5 +38,4 @@ class TransactionHistoryRepositoryImpl extends TransactionHistoryRepository {
       );
     }
   }
-
 }

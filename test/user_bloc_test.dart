@@ -58,7 +58,7 @@ void main() {
       'emits [loading, error] when fetchUserDetails fails',
       build: () {
         when(() => mockUserRepository.getUser(tUserId))
-            .thenAnswer((_) async => Left(tFailure));
+            .thenAnswer((_) async => const Left(tFailure));
         return UserBloc(getUserDetails: getUserDetails);
       },
       act: (bloc) => bloc.add(const UserEvent.fetchUserDetails(tUserId)),

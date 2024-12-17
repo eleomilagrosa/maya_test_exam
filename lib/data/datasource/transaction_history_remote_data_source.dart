@@ -6,7 +6,8 @@ abstract class TransactionHistoryRemoteDataSource {
   Future<List<Transaction>> getAllUserTransactionHistory(int userId);
 }
 
-class TransactionHistoryRemoteDataSourceImpl implements TransactionHistoryRemoteDataSource {
+class TransactionHistoryRemoteDataSourceImpl
+    implements TransactionHistoryRemoteDataSource {
   final Dio dio = Dio(BaseOptions(
     baseUrl: APIConstants.host,
   ));

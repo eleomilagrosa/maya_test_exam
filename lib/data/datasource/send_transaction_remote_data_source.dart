@@ -24,11 +24,12 @@ class SendTransactionRemoteDataSourceImpl
       double newBalance = user.balance - amount;
       final response = await dio.post(APIConstants.transaction,
           data: Transaction(
-              amount: amount,
-              balance: newBalance,
-              userId: user.id,
-              previousBalance: user.balance,
-              createdAt: DateTime.now()).toJson());
+                  amount: amount,
+                  balance: newBalance,
+                  userId: user.id,
+                  previousBalance: user.balance,
+                  createdAt: DateTime.now())
+              .toJson());
       if (response.isSuccess) {
         user.balance = newBalance;
         SendTransactionResult transactionResult = SendTransactionResult(

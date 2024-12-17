@@ -6,11 +6,8 @@
 // tree, read text, and verify that the values of widget properties are correct.
 import 'package:maya_test_exam/common/failure.dart';
 
-void main() {
-}
+void main() {}
 
 class FakeFailure extends Failure {
-  @override
-  final String message;
-  const FakeFailure(this.message) : super(message);
+  const FakeFailure(super.message);
 }

@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
 import 'package:maya_test_exam/common/colors.dart';
 import 'package:maya_test_exam/common/constants.dart';
 import 'package:maya_test_exam/common/enum.dart';
-import 'package:maya_test_exam/common/routes.dart';
 import 'package:maya_test_exam/common/toast.dart';
 import 'package:maya_test_exam/presentation/bloc/user/user_bloc.dart';
 import 'package:maya_test_exam/presentation/page/error/error_screen.dart';
-import 'package:maya_test_exam/presentation/widget/custom_rounded_button.dart';
-import 'package:maya_test_exam/utilities/extensions/app_extensions.dart';
+import 'package:maya_test_exam/presentation/page/home/home_screen_content.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -40,7 +36,6 @@ class CardUserWidget extends StatefulWidget {
 
 class _CardUserWidgetState extends State<CardUserWidget> {
   TextTheme get textTheme => Theme.of(context).textTheme;
-  bool _obscureText = true;
 
   @override
   void initState() {
@@ -75,72 +70,8 @@ class _CardUserWidgetState extends State<CardUserWidget> {
             ),
           );
         } else if (state.state == RequestState.loaded) {
-          return Card(
-            margin: const EdgeInsets.all(20),
-            child: Container(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                          child: Text(
-                        'PHP ${state.currentUser?.balance.toStringAsFixed(2).toPriceLabel.obscureText(_obscureText)}',
-                        style: textTheme.displayLarge,
-                      )),
-                      IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _obscureText = !_obscureText;
-                            });
-                          },
-                          icon: Icon(
-                            !_obscureText
-                                ? FontAwesomeIcons.eye
-                                : FontAwesomeIcons.eyeSlash,
-                          )),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Text(
-                    "Total Savings",
-                    style: textTheme.displaySmall,
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: CustomRoundedButton(
-                            buttonName: "Send Money",
-                            icon: Icons.trending_up_rounded,
-                            onTap: () async {
-                              // Navigator.pushNamed(context, AppRoutes.SEND_MONEY_ROUTE_NAME);
-                              await context.pushNamed(AppRoutes.SEND_MONEY_ROUTE_NAME);
-                              setState(() {});
-                            }),
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Expanded(
-                        child: CustomRoundedButton(
-                            buttonName: "History",
-                            icon: Icons.history,
-                            onTap: () {
-                              context.goNamed(
-                                  AppRoutes.TRANSACTION_HISTORY_ROUTE_NAME);
-                            }),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
+          return HomeScreenContent(
+            user: state.currentUser,
           );
         }
         return Container();

@@ -38,11 +38,12 @@ void init() {
 
   final transactionHistoryDataSource = TransactionHistoryRemoteDataSourceImpl();
   locator.registerLazySingleton<TransactionHistoryRemoteDataSource>(
-        () => transactionHistoryDataSource,
+    () => transactionHistoryDataSource,
   );
-  final transactionHistoryRepository = TransactionHistoryRepositoryImpl(locator(), locator());
+  final transactionHistoryRepository =
+      TransactionHistoryRepositoryImpl(locator(), locator());
   locator.registerLazySingleton<TransactionHistoryRepository>(
-        () => transactionHistoryRepository,
+    () => transactionHistoryRepository,
   );
 
   // Use cases

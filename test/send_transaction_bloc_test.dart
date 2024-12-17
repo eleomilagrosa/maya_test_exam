@@ -49,7 +49,8 @@ void main() {
     const tFailure = FakeFailure('Transaction failed');
 
     test('initial state is SendTransactionState.initial()', () {
-      final bloc = SendTransactionBloc(sendMoneyTransaction: sendMoneyTransaction);
+      final bloc =
+          SendTransactionBloc(sendMoneyTransaction: sendMoneyTransaction);
       expect(bloc.state, SendTransactionState.initial());
     });
 
@@ -60,7 +61,8 @@ void main() {
             .thenAnswer((_) async => Right(tSendTransactionResult));
         return SendTransactionBloc(sendMoneyTransaction: sendMoneyTransaction);
       },
-      act: (bloc) => bloc.add(const SendTransactionEvent.sendMoneyTransaction(tAmount)),
+      act: (bloc) =>
+          bloc.add(const SendTransactionEvent.sendMoneyTransaction(tAmount)),
       wait: const Duration(seconds: 2),
       expect: () => [
         SendTransactionState.initial().copyWith(state: RequestState.loading),
@@ -75,10 +77,11 @@ void main() {
       'emits [loading, error] when sendMoneyTransaction fails',
       build: () {
         when(() => mockRepository.sendMoneyTransaction(amount: tAmount))
-            .thenAnswer((_) async => Left(tFailure));
+            .thenAnswer((_) async => const Left(tFailure));
         return SendTransactionBloc(sendMoneyTransaction: sendMoneyTransaction);
       },
-      act: (bloc) => bloc.add(const SendTransactionEvent.sendMoneyTransaction(tAmount)),
+      act: (bloc) =>
+          bloc.add(const SendTransactionEvent.sendMoneyTransaction(tAmount)),
       wait: const Duration(seconds: 2),
       expect: () => [
         SendTransactionState.initial().copyWith(state: RequestState.loading),
@@ -91,7 +94,8 @@ void main() {
 
     blocTest<SendTransactionBloc, SendTransactionState>(
       'emits [initial] when resetState is added',
-      build: () => SendTransactionBloc(sendMoneyTransaction: sendMoneyTransaction),
+      build: () =>
+          SendTransactionBloc(sendMoneyTransaction: sendMoneyTransaction),
       act: (bloc) => bloc.add(const SendTransactionEvent.resetState()),
       expect: () => [
         SendTransactionState.initial(),

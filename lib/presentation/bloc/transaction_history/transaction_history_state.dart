@@ -9,8 +9,8 @@ class TransactionHistoryState with _$TransactionHistoryState {
   }) = _TransactionHistoryState;
 
   factory TransactionHistoryState.initial() => const TransactionHistoryState(
-    state: RequestState.empty,
-    errorMessage: '',
-    transactions: [],
-  );
+        state: RequestState.empty,
+        errorMessage: '',
+        transactions: [],
+      );
 }

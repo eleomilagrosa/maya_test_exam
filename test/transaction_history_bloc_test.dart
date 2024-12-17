@@ -45,7 +45,8 @@ void main() {
     const tFailure = FakeFailure('Failed to fetch transaction history');
 
     test('initial state is TransactionHistoryState.initial()', () {
-      final bloc = TransactionHistoryBloc(getTransactionHistory: getTransactionHistory);
+      final bloc =
+          TransactionHistoryBloc(getTransactionHistory: getTransactionHistory);
       expect(bloc.state, TransactionHistoryState.initial());
     });
 
@@ -54,9 +55,11 @@ void main() {
       build: () {
         when(() => mockRepository.getAllUserTransactionHistory())
             .thenAnswer((_) async => Right(tTransactions));
-        return TransactionHistoryBloc(getTransactionHistory: getTransactionHistory);
+        return TransactionHistoryBloc(
+            getTransactionHistory: getTransactionHistory);
       },
-      act: (bloc) => bloc.add(const TransactionHistoryEvent.fetchTransactionHistory()),
+      act: (bloc) =>
+          bloc.add(const TransactionHistoryEvent.fetchTransactionHistory()),
       wait: const Duration(seconds: 1),
       expect: () => [
         TransactionHistoryState.initial().copyWith(state: RequestState.loading),
@@ -71,10 +74,12 @@ void main() {
       'emits [loading, error] when fetchTransactionHistory fails',
       build: () {
         when(() => mockRepository.getAllUserTransactionHistory())
-            .thenAnswer((_) async => Left(tFailure));
-        return TransactionHistoryBloc(getTransactionHistory: getTransactionHistory);
+            .thenAnswer((_) async => const Left(tFailure));
+        return TransactionHistoryBloc(
+            getTransactionHistory: getTransactionHistory);
       },
-      act: (bloc) => bloc.add(const TransactionHistoryEvent.fetchTransactionHistory()),
+      act: (bloc) =>
+          bloc.add(const TransactionHistoryEvent.fetchTransactionHistory()),
       wait: const Duration(seconds: 1),
       expect: () => [
         TransactionHistoryState.initial().copyWith(state: RequestState.loading),

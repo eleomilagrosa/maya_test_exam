@@ -8,27 +8,27 @@ part 'transaction_history_state.dart';
 part 'transaction_history_event.dart';
 part 'transaction_history_bloc.freezed.dart';
 
-class TransactionHistoryBloc extends Bloc<TransactionHistoryEvent, TransactionHistoryState> {
+class TransactionHistoryBloc
+    extends Bloc<TransactionHistoryEvent, TransactionHistoryState> {
   TransactionHistoryBloc({
     required this.getTransactionHistory,
   }) : super(TransactionHistoryState.initial()) {
     on<TransactionHistoryEvent>(
-          (event, emit) async {
+      (event, emit) async {
         await event.map(
           fetchTransactionHistory: (args) async {
             emit(state.copyWith(state: RequestState.loading));
             await Future.delayed(const Duration(seconds: 1));
             final result = await getTransactionHistory.call();
             result.fold(
-                    (f) => emit(
-                  state.copyWith(
-                    state: RequestState.error,
-                    errorMessage: f.message,
-                  ),
-                ),
-              (list) => emit(state.copyWith(
-                state: RequestState.loaded,
-                transactions: list)));
+                (f) => emit(
+                      state.copyWith(
+                        state: RequestState.error,
+                        errorMessage: f.message,
+                      ),
+                    ),
+                (list) => emit(state.copyWith(
+                    state: RequestState.loaded, transactions: list)));
           },
         );
       },

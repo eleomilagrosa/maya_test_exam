@@ -10,22 +10,22 @@ import 'package:maya_test_exam/utilities/logger.dart';
 GoRouter routerInitialize = GoRouter(
   routes: <RouteBase>[
     GoRoute(
-        name: AppRoutes.HOME_ROUTE_NAME,
-        path: AppRoutes.HOME_ROUTE_PATH,
+        name: AppRoutes.homeName,
+        path: AppRoutes.homePath,
         builder: (BuildContext context, GoRouterState state) {
           return const HomeScreen();
         },
         routes: [
           GoRoute(
-            name: AppRoutes.SEND_MONEY_ROUTE_NAME,
-            path: AppRoutes.SEND_MONEY_ROUTE_PATH,
+            name: AppRoutes.sendMoneyName,
+            path: AppRoutes.sendMoneyPath,
             builder: (BuildContext context, GoRouterState state) {
               return const SendMoneyScreen();
             },
           ),
           GoRoute(
-            name: AppRoutes.TRANSACTION_HISTORY_ROUTE_NAME,
-            path: AppRoutes.TRANSACTION_HISTORY_ROUTE_PATH,
+            name: AppRoutes.transactionHistoryName,
+            path: AppRoutes.transactionHistoryPath,
             builder: (BuildContext context, GoRouterState state) {
               return const TransactionHistoryScreen();
             },
