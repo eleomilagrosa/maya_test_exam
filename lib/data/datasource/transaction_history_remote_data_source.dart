@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:maya_test_exam/common/api_constants.dart';
-import 'package:maya_test_exam/data/model/transaction.dart';
+import 'package:maya_test_exam/data/model/transaction_model.dart';
 
 abstract class TransactionHistoryRemoteDataSource {
-  Future<List<Transaction>> getAllUserTransactionHistory(int userId);
+  Future<List<TransactionModel>> getAllUserTransactionHistory(int userId);
 }
 
 class TransactionHistoryRemoteDataSourceImpl
@@ -13,7 +13,7 @@ class TransactionHistoryRemoteDataSourceImpl
   ));
 
   @override
-  Future<List<Transaction>> getAllUserTransactionHistory(int userId) async {
+  Future<List<TransactionModel>> getAllUserTransactionHistory(int userId) async {
     try {
       final response =
           await dio.get(APIConstants.transaction, queryParameters: {
@@ -21,7 +21,7 @@ class TransactionHistoryRemoteDataSourceImpl
       });
       final list = (response.data as List?)
           ?.map((e) => e as Map<String, dynamic>)
-          .map<Transaction>(Transaction.fromJson)
+          .map<TransactionModel>(TransactionModel.fromJson)
           .toList();
 
       return list ?? [];

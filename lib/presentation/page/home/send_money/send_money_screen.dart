@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maya_test_exam/common/enum.dart';
 import 'package:maya_test_exam/common/toast.dart';
-import 'package:maya_test_exam/data/model/transaction.dart';
+import 'package:maya_test_exam/data/model/transaction_model.dart';
 import 'package:maya_test_exam/injection.dart';
 import 'package:maya_test_exam/presentation/bloc/send_transaction/send_transaction_bloc.dart';
 import 'package:maya_test_exam/presentation/page/home/send_money/send_money_error_dialog.dart';
@@ -112,7 +112,7 @@ class _SendMoneyBodyState extends State<SendMoneyBody> {
   }
 
   Future showTransactionDetails(
-      BuildContext context, Transaction? transaction) async {
+      BuildContext context, TransactionModel? transaction) async {
     if (transaction != null) {
       await SendMoneySuccessDialog.showDialog(context,
           transaction: transaction);

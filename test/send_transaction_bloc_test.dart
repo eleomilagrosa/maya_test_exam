@@ -2,8 +2,9 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:maya_test_exam/common/enum.dart';
-import 'package:maya_test_exam/data/model/transaction.dart';
-import 'package:maya_test_exam/data/model/user.dart';
+import 'package:maya_test_exam/data/model/transaction_model.dart';
+import 'package:maya_test_exam/data/model/user_model.dart';
+import 'package:maya_test_exam/domain/entity/user_entity.dart';
 import 'package:maya_test_exam/domain/repositories/send_transaction_repository.dart';
 import 'package:maya_test_exam/domain/usecase/send_money_transaction.dart';
 import 'package:maya_test_exam/presentation/bloc/send_transaction/send_transaction_bloc.dart';
@@ -26,7 +27,7 @@ void main() {
   group('SendTransactionBloc', () {
     const tAmount = 100.0;
 
-    final tTransaction = Transaction(
+    final tTransaction = TransactionModel(
       id: 1,
       amount: 100.0,
       balance: 900.0,
@@ -35,7 +36,7 @@ void main() {
       createdAt: DateTime.now(),
     );
 
-    final tUser = User(
+    final tUser = UserModel(
       id: 1,
       name: 'Eleojasmil Milagrosa',
       balance: 900.0,

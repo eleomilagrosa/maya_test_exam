@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:maya_test_exam/common/exception.dart';
 import 'package:maya_test_exam/common/failure.dart';
 import 'package:maya_test_exam/data/datasource/transaction_history_remote_data_source.dart';
-import 'package:maya_test_exam/data/model/transaction.dart';
+import 'package:maya_test_exam/data/model/transaction_model.dart';
 import 'package:maya_test_exam/domain/repositories/transaction_history_repository.dart';
 import 'package:maya_test_exam/domain/repositories/user_repository.dart';
 
@@ -15,7 +15,7 @@ class TransactionHistoryRepositoryImpl extends TransactionHistoryRepository {
   final UserRepository userRepository;
 
   @override
-  Future<Either<Failure, List<Transaction>>>
+  Future<Either<Failure, List<TransactionModel>>>
       getAllUserTransactionHistory() async {
     try {
       final result = await dataSource

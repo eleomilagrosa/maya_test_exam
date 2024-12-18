@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:maya_test_exam/common/exception.dart';
 import 'package:maya_test_exam/common/failure.dart';
 import 'package:maya_test_exam/data/datasource/user_remote_data_source.dart';
-import 'package:maya_test_exam/data/model/user.dart';
+import 'package:maya_test_exam/data/model/user_model.dart';
 import 'package:maya_test_exam/domain/repositories/user_repository.dart';
 
 class UserRepositoryImpl extends UserRepository {
@@ -13,7 +13,7 @@ class UserRepositoryImpl extends UserRepository {
   final UserRemoteDataSource dataSource;
 
   @override
-  Future<Either<Failure, User>> getUser(int userId) async {
+  Future<Either<Failure, UserModel>> getUser(int userId) async {
     try {
       final result = await dataSource.getUser(userId);
       currentUser = result;

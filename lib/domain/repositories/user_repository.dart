@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:maya_test_exam/common/failure.dart';
-import 'package:maya_test_exam/data/model/transaction.dart';
-import 'package:maya_test_exam/data/model/user.dart';
+import 'package:maya_test_exam/data/model/transaction_model.dart';
+import 'package:maya_test_exam/domain/entity/user_entity.dart';
 
 abstract class UserRepository {
-  Future<Either<Failure, User>> getUser(int userId);
-  User? currentUser;
-  List<Transaction> addedTransactions = [];
+  Future<Either<Failure, UserEntity>> getUser(int userId);
+  UserEntity? currentUser;
+  List<TransactionModel> addedTransactions = [];
 }

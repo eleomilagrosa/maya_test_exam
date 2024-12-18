@@ -223,7 +223,7 @@ abstract class _FetchUserDetails implements UserEvent {
 mixin _$UserState {
   RequestState get state => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
-  User? get currentUser => throw _privateConstructorUsedError;
+  UserEntity? get currentUser => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserStateCopyWith<UserState> get copyWith =>
@@ -235,7 +235,7 @@ abstract class $UserStateCopyWith<$Res> {
   factory $UserStateCopyWith(UserState value, $Res Function(UserState) then) =
       _$UserStateCopyWithImpl<$Res, UserState>;
   @useResult
-  $Res call({RequestState state, String errorMessage, User? currentUser});
+  $Res call({RequestState state, String errorMessage, UserEntity? currentUser});
 }
 
 /// @nodoc
@@ -267,7 +267,7 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
       currentUser: freezed == currentUser
           ? _value.currentUser
           : currentUser // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as UserEntity?,
     ) as $Val);
   }
 }
@@ -280,7 +280,7 @@ abstract class _$$UserStateImplCopyWith<$Res>
       __$$UserStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({RequestState state, String errorMessage, User? currentUser});
+  $Res call({RequestState state, String errorMessage, UserEntity? currentUser});
 }
 
 /// @nodoc
@@ -310,7 +310,7 @@ class __$$UserStateImplCopyWithImpl<$Res>
       currentUser: freezed == currentUser
           ? _value.currentUser
           : currentUser // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as UserEntity?,
     ));
   }
 }
@@ -328,7 +328,7 @@ class _$UserStateImpl implements _UserState {
   @override
   final String errorMessage;
   @override
-  final User? currentUser;
+  final UserEntity? currentUser;
 
   @override
   String toString() {
@@ -362,14 +362,14 @@ abstract class _UserState implements UserState {
   const factory _UserState(
       {required final RequestState state,
       required final String errorMessage,
-      required final User? currentUser}) = _$UserStateImpl;
+      required final UserEntity? currentUser}) = _$UserStateImpl;
 
   @override
   RequestState get state;
   @override
   String get errorMessage;
   @override
-  User? get currentUser;
+  UserEntity? get currentUser;
   @override
   @JsonKey(ignore: true)
   _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>

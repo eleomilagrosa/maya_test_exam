@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:maya_test_exam/data/model/transaction.dart';
+import 'package:maya_test_exam/domain/entity/transaction_entity.dart';
 import 'package:maya_test_exam/utilities/extensions/app_extensions.dart';
 
 class TransactionHistoryContent extends StatelessWidget {
   const TransactionHistoryContent({super.key, required this.transactions});
-  final List<Transaction> transactions;
+  final List<TransactionEntity> transactions;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class TransactionHistoryContent extends StatelessWidget {
         itemBuilder: (context, index) {
           var item = transactions[index];
           bool hasDateTitle = false;
-          Transaction? previous;
+          TransactionEntity? previous;
           if (index != 0) {
             previous = transactions[index - 1];
           } else {

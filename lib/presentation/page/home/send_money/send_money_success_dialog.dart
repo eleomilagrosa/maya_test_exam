@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:maya_test_exam/common/assets.dart';
 import 'package:maya_test_exam/common/colors.dart';
-import 'package:maya_test_exam/data/model/transaction.dart';
+import 'package:maya_test_exam/data/model/transaction_model.dart';
 import 'package:maya_test_exam/utilities/extensions/app_extensions.dart';
 
 class SendMoneySuccessDialog extends StatelessWidget {
   const SendMoneySuccessDialog({required this.transaction, super.key});
 
   static Future showDialog(BuildContext context,
-      {required Transaction transaction}) async {
+      {required TransactionModel transaction}) async {
     return await showModalBottomSheet(
       context: context,
       backgroundColor: ColorLight.card,
@@ -21,7 +21,7 @@ class SendMoneySuccessDialog extends StatelessWidget {
     );
   }
 
-  final Transaction transaction;
+  final TransactionModel transaction;
 
   @override
   Widget build(BuildContext context) {

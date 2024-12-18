@@ -2,7 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:maya_test_exam/common/enum.dart';
-import 'package:maya_test_exam/data/model/transaction.dart';
+import 'package:maya_test_exam/data/model/transaction_model.dart';
 import 'package:maya_test_exam/domain/repositories/transaction_history_repository.dart';
 import 'package:maya_test_exam/domain/usecase/get_transaction_history.dart';
 import 'package:maya_test_exam/presentation/bloc/transaction_history/transaction_history_bloc.dart';
@@ -24,7 +24,7 @@ void main() {
 
   group('TransactionHistoryBloc', () {
     final tTransactions = [
-      Transaction(
+      TransactionModel(
         id: 1,
         amount: 100.0,
         balance: 900.0,
@@ -32,7 +32,7 @@ void main() {
         userId: 1,
         createdAt: DateTime.now(),
       ),
-      Transaction(
+      TransactionModel(
         id: 2,
         amount: 50.0,
         balance: 850.0,

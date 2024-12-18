@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maya_test_exam/common/routes.dart';
-import 'package:maya_test_exam/data/model/user.dart';
+import 'package:maya_test_exam/domain/entity/user_entity.dart';
 import 'package:maya_test_exam/presentation/widget/custom_rounded_button.dart';
 import 'package:maya_test_exam/utilities/extensions/app_extensions.dart';
 
 class HomeScreenContent extends StatefulWidget {
   const HomeScreenContent({required this.user, super.key});
-  final User? user;
+  final UserEntity? user;
 
   @override
   State<HomeScreenContent> createState() => _HomeScreenContentState();

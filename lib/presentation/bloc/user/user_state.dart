@@ -5,7 +5,7 @@ class UserState with _$UserState {
   const factory UserState({
     required RequestState state,
     required String errorMessage,
-    required User? currentUser,
+    required UserEntity? currentUser,
   }) = _UserState;
 
   factory UserState.initial() => const UserState(

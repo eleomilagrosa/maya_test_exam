@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TransactionHistoryState {
   RequestState get state => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
-  List<Transaction> get transactions => throw _privateConstructorUsedError;
+  List<TransactionEntity> get transactions =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TransactionHistoryStateCopyWith<TransactionHistoryState> get copyWith =>
@@ -34,7 +35,7 @@ abstract class $TransactionHistoryStateCopyWith<$Res> {
   $Res call(
       {RequestState state,
       String errorMessage,
-      List<Transaction> transactions});
+      List<TransactionEntity> transactions});
 }
 
 /// @nodoc
@@ -67,7 +68,7 @@ class _$TransactionHistoryStateCopyWithImpl<$Res,
       transactions: null == transactions
           ? _value.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
-              as List<Transaction>,
+              as List<TransactionEntity>,
     ) as $Val);
   }
 }
@@ -84,7 +85,7 @@ abstract class _$$TransactionHistoryStateImplCopyWith<$Res>
   $Res call(
       {RequestState state,
       String errorMessage,
-      List<Transaction> transactions});
+      List<TransactionEntity> transactions});
 }
 
 /// @nodoc
@@ -116,7 +117,7 @@ class __$$TransactionHistoryStateImplCopyWithImpl<$Res>
       transactions: null == transactions
           ? _value._transactions
           : transactions // ignore: cast_nullable_to_non_nullable
-              as List<Transaction>,
+              as List<TransactionEntity>,
     ));
   }
 }
@@ -127,16 +128,16 @@ class _$TransactionHistoryStateImpl implements _TransactionHistoryState {
   const _$TransactionHistoryStateImpl(
       {required this.state,
       required this.errorMessage,
-      required final List<Transaction> transactions})
+      required final List<TransactionEntity> transactions})
       : _transactions = transactions;
 
   @override
   final RequestState state;
   @override
   final String errorMessage;
-  final List<Transaction> _transactions;
+  final List<TransactionEntity> _transactions;
   @override
-  List<Transaction> get transactions {
+  List<TransactionEntity> get transactions {
     if (_transactions is EqualUnmodifiableListView) return _transactions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_transactions);
@@ -175,7 +176,7 @@ abstract class _TransactionHistoryState implements TransactionHistoryState {
   const factory _TransactionHistoryState(
           {required final RequestState state,
           required final String errorMessage,
-          required final List<Transaction> transactions}) =
+          required final List<TransactionEntity> transactions}) =
       _$TransactionHistoryStateImpl;
 
   @override
@@ -183,7 +184,7 @@ abstract class _TransactionHistoryState implements TransactionHistoryState {
   @override
   String get errorMessage;
   @override
-  List<Transaction> get transactions;
+  List<TransactionEntity> get transactions;
   @override
   @JsonKey(ignore: true)
   _$$TransactionHistoryStateImplCopyWith<_$TransactionHistoryStateImpl>

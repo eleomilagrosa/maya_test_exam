@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:maya_test_exam/common/enum.dart';
-import 'package:maya_test_exam/data/model/transaction.dart';
+import 'package:maya_test_exam/domain/entity/user_entity.dart';
 import 'package:maya_test_exam/domain/usecase/send_money_transaction.dart';
 
 part 'send_transaction_event.dart';

@@ -5,7 +5,7 @@ class TransactionHistoryState with _$TransactionHistoryState {
   const factory TransactionHistoryState({
     required RequestState state,
     required String errorMessage,
-    required List<Transaction> transactions,
+    required List<TransactionEntity> transactions,
   }) = _TransactionHistoryState;
 
   factory TransactionHistoryState.initial() => const TransactionHistoryState(
