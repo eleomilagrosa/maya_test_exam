@@ -31,8 +31,6 @@ APK Demo
 
 ## Project Structure
 
-The project follows a well-defined directory structure to keep your code organized and maintainable. Here's an overview of the key directories:
-
 - **src**: The main source code directory.
 
     - **common**: Contains common files such as API endpoints, constants, exceptions, colors, screen sizes, and enums.
